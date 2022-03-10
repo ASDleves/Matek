@@ -1,5 +1,6 @@
 package matekalapmuveletek;
 
+import java.util.Random;
 import java.util.Scanner;
 
 public class MatekAlapmuveletek {
@@ -29,12 +30,50 @@ public class MatekAlapmuveletek {
     }
     
     private static int osszeadas(){
-       int szam1 = 0;
-       return szam1;
+       int joValaszok = 0;
+        int min = 0, max = 50;
+        Random rndSzam = new Random();
+        for (int i = 0; i < 10; i++) {
+            int szam1 = rndSzam.nextInt(max - min + 1) + min;
+            int szam2 = rndSzam.nextInt(max - min + 1) + min;
+            System.out.print(szam1 + "+" + szam2 + "= ");
+            int valasz = scanner.nextInt();
+            if (valasz == (szam1 + szam2)) {
+                joValaszok++;
+            }
+
+        }
+        System.out.println("");
+        System.out.println("Helyes válaszok: " + joValaszok);
+        
+        return joValaszok;
     }
     private static int kivonas(){
-        int szam1 = 0;
-       return szam1;
+        int joValaszok = 0;
+        int min = 0, max = 100;
+        Random rndSzam = new Random();
+        for (int i = 0; i < 10; i++) {
+            int szam1 = rndSzam.nextInt(max - min + 1) + min;
+            int szam2 = rndSzam.nextInt(max - min + 1) + min;
+            
+            int seged = 0;
+            if (szam2 > szam1){
+                seged = szam2;
+                szam2 = szam1;
+                szam1 = seged;
+            }
+            
+            System.out.print(szam1 + "-" + szam2 + "= ");
+            int valasz = scanner.nextInt();
+            if (valasz == (szam1 - szam2)) {
+                joValaszok++;
+            }
+
+        }
+        System.out.println("");
+        System.out.println("Helyes válaszok: " + joValaszok);
+        
+        return joValaszok;
     }
     private static int szorzas(){
         int szam1 = 0;
